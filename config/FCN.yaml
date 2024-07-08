@@ -1,0 +1,35 @@
+DEVICE          : cuda             # device used for training and evaluation (cpu, cuda, cuda0, cuda1, ...)
+SAVE_DIR        : 'output'         # output folder name used for saving the model, logs and inference results
+
+MODEL:                                    
+  NAME          :                  # name of the model you are using
+  BACKBONE      :                  # model variant
+  PRETRAINED    : 
+
+DATASET:
+  NAME          :                  # dataset name to be trained with (camvid, cityscapes, ade20k)
+  ROOT          :                  # dataset root path
+  IGNORE_LABEL  : 255
+
+LOSS:
+  NAME          : CrossEntropy     # loss function name (ohemce, ce, dice)
+  CLS_WEIGHTS   : false            # use class weights in loss calculation
+
+OPTIMIZER:
+  NAME          : adamw           # optimizer name
+  LR            : 0.001           # initial learning rate used in optimizer
+  WEIGHT_DECAY  : 0.01            # decay rate used in optimizer 
+
+SCHEDULER:
+  NAME          :                 # scheduler name
+  POWER         : 0.9             # scheduler power
+  WARMUP        : 10              # warmup epochs used in scheduler
+  WARMUP_RATIO  : 0.1             # warmup ratio
+  
+TRAIN:
+  IMAGE_SIZE    : [512, 512]      # training image size in (h, w)
+  BATCH_SIZE    : 2               # batch size used to train
+  EPOCHS        : 100             # number of epochs to train
+  EVAL_INTERVAL : 20              # evaluation interval during training
+  AMP           : false           # use AMP in training
+
