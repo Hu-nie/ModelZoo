@@ -19,8 +19,5 @@ RUN apt-get update && apt-get install -y \
     vim \
     && rm -rf /var/lib/apt/lists/*
 
-# Optional: Copy your project files into the container
-COPY . /workspace
-
 # Default command to run when starting the container
 CMD ["bash"]
